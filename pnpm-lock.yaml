@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@astrojs/node': ^1.0.0
   '@astrojs/vue': ^1.0.0
   astro: ^1.0.9
   axios: ^0.27.2
@@ -12,6 +13,7 @@ dependencies:
   axios: 0.27.2
 
 devDependencies:
+  '@astrojs/node': 1.0.0
   '@astrojs/vue': 1.0.0_vue@3.2.37
   astro: 1.0.9
   prettier: 2.7.1
@@ -88,6 +90,12 @@ packages:
       micromark-util-types: 1.0.2
       uvu: 0.5.6
       vfile-message: 3.1.2
+    dev: true
+
+  /@astrojs/node/1.0.0:
+    resolution: {integrity: sha512-w2QSYICDf9JC43bf9cLiiCMHaSfP6Nh07Ss8mDAJScG30Sc73stS/mkPxdnISABo2SQbtXjNe8rxwdu7Sus7Ag==}
+    dependencies:
+      '@astrojs/webapi': 1.0.0
     dev: true
 
   /@astrojs/prism/1.0.1:
