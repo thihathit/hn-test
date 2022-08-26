@@ -1,22 +1,23 @@
 {
-  "name": "@example/minimal",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "devDependencies": {
-    "@astrojs/vue": "^1.0.0",
-    "astro": "^1.0.9",
-    "prettier": "^2.7.1",
-    "prettier-plugin-astro": "^0.5.3",
-    "vue": "^3.2.30"
-  },
-  "dependencies": {
-    "axios": "^0.27.2"
-  }
+    "name": "@example/minimal",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro"
+    },
+    "dependencies": {
+        "got": "^12.3.1"
+    },
+    "devDependencies": {
+        "@astrojs/netlify": "^1.0.1",
+        "@astrojs/vue": "^1.0.0",
+        "astro": "^1.0.9",
+        "prettier": "^2.7.1",
+        "prettier-plugin-astro": "^0.5.3",
+        "vue": "^3.2.30"
+    }
 }

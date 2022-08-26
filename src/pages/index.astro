@@ -1,18 +1,14 @@
 ---
-import axios from "axios"
+import got from "got"
 import Head from "$components/blocks/Head.astro"
 import Story from "$components/blocks/Story.vue"
 
-const request = axios.create({
-    baseURL: "https://api.hackerwebapp.com",
-})
-
-const { data } = await request.get("/item/32593996")
+const data = await got.get("https://api.hackerwebapp.com/item/30186326").json()
 ---
 
 <html lang="en">
     <Head />
     <body>
-        <Story data={data} />
+        <Story data={data as never} />
     </body>
 </html>
