@@ -10,7 +10,7 @@ const hasComments = !!props.data.comments.length
 <template>
     <details open>
         <summary>
-            <mark>{{ data.user }}</mark> {{ data.time_ago }}
+            <mark v-if="data.user">{{ data.user }}</mark> {{ data.time_ago }}
         </summary>
 
         <article v-html="data.content" />
