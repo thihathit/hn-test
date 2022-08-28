@@ -1,16 +1,43 @@
 import { createServer } from "http"
+import fs from "fs"
+import mime from "mime"
 import { handler as ssrHandler } from "./dist/server/entry.mjs"
 
-createServer(function (req, res) {
-    ssrHandler(req, res, (err) => {
+const clientRoot = new URL("./dist/client/", import.meta.url)
+
+const port = 5000
+
+async function handle(req, res) {
+    ssrHandler(req, res, async (err) => {
         if (err) {
             res.writeHead(500)
-            res.end(err.toString())
-        } else {
-            // Serve your static assets here maybe?
-            // 404?
+            res.end(err.stack)
+            return
+        }
+
+        let local = new URL("." + req.url, clientRoot)
+        try {
+            const data = await fs.promises.readFile(local)
+            res.writeHead(200, {
+                "Content-Type": mime.getType(req.url),
+            })
+            res.end(data)
+        } catch {
             res.writeHead(404)
             res.end()
         }
     })
-}).listen(5000)
+}
+
+const server = createServer((req, res) => {
+    handle(req, res).catch((err) => {
+        console.error(err)
+        res.writeHead(500, {
+            "Content-Type": "text/plain",
+        })
+        res.end(err.toString())
+    })
+})
+
+server.listen(port)
+console.log(`Serving at http://localhost:${port}`)
