@@ -13,6 +13,6 @@ const { data } = await request.get("/item/30186326")
 <html lang="en">
     <Head />
     <body>
-        <Story data={data} />
+        <Story client:idle data={data} />
     </body>
 </html>
